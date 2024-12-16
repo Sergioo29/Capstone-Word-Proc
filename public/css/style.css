@@ -1,0 +1,119 @@
+html{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    font-family: sans-serif;
+    margin: 0px;
+}
+    
+header{
+    background-color: rgb(96, 96, 96);
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+
+}
+
+header h1{
+    font-weight: 800;
+    justify-self: center;
+    align-self: center;
+    color: white;
+    border: 1px lightblue;
+    border-radius: 50%;
+    width: 100%;
+    padding: 25px;
+    margin: 0px;
+    text-align: center;
+}
+
+header img{
+    justify-self: right;
+    align-self: center;
+}
+
+nav{
+    background-color: black;
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-around;
+    text-decoration: none;
+    margin: 0px;
+
+}
+nav li{
+    padding: 1%;
+    width: 100%;
+    text-align: center;
+    
+}
+nav li:hover{
+    background-color: lightblue;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+}
+
+main ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+
+}
+
+main li{
+    list-style: none;
+    padding: 20px;
+    border: 2px solid black;
+    background-color: lightblue;
+}
+
+main li img{
+    border: 5px solid black;
+    margin-left: 25%;
+}
+
+main li h2, main li h3{
+    text-align: center;
+}
+
+header  button{
+    background-color: black;
+    padding: 15px; color: white;
+    border: 2px solid white;
+    border-radius: 25px;
+    text-decoration: none;
+    width: 50%;
+    height: 40%;
+    justify-self: center;
+    align-self: center;
+}
+
+header button a{
+    text-decoration: none;
+    color: white;
+   
+}
+header button:hover{
+    background-color: lightblue;
+}
+
+
+/* For HOME PAGE ------------- */
+
+.homepageTitle{
+    padding-top: 10%;
+    text-align: center;
+
+}
+
+.loggedMessage{
+    text-align: center;
+    margin-top: 5%;
+}
