@@ -9,12 +9,12 @@ require('dotenv').config();
 
 // OAuth configuration
 const config = {
-  authRequired: false, // Allows public access to routes unless explicitly protected
-  auth0Logout: true,   // Enables logout through Auth0
+  authRequired: false,
+  auth0Logout: true,
   secret: process.env.SECRET,
-  baseURL: process.env.BASE_URL,
+  baseURL: process.env.URL || 'http://localhost:3000',
   clientID: process.env.CLIENT_ID,
-  issuerBaseURL: process.env.ISSUER_BASE_URL,
+  issuerBaseURL: process.env.ISSUER
 };
 
 // Node Express uses and routes --------------------

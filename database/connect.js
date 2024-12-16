@@ -10,7 +10,7 @@ const initDb = (callback) => {
     console.log('Db is already initialized!');
     return callback(null, _db);
   }
-  MongoClient.connect(process.env.MONGODB_URI)
+  MongoClient.connect(process.env.DATABASE_LINK)
     .then((client) => {
       _db = client;
       callback(null, _db);
@@ -27,7 +27,4 @@ const getDb = () => {
   return _db;
 };
 
-module.exports = {
-  initDb,
-  getDb,
-};
+module.exports = {initDb, getDb};
