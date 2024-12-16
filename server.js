@@ -4,6 +4,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 const path = require('path');
 const mongodb = require('./database/connect');
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const { auth } = require('express-openid-connect')
 require('dotenv').config();
 
@@ -20,6 +22,10 @@ const config = {
 // Node Express uses and routes --------------------
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(methodOverride('_method'));
 
 app.use(cors());
 

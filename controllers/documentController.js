@@ -2,9 +2,12 @@ const { get } = require('mongoose');
 const mongodb = require('../database/connect.js');
 const { MongoClient, ObjectId } = require('mongodb');
 
+const controllers = {}
+
+
 //-----------------------------------------------------------------------
 
-const getAllDocuments = async (req, res, next) => {
+controllers.getAllDocuments = async (req, res, next) => {
   try {
     const result = await mongodb.getDb().db('WordProc').collection('documents').find();
     const documents = await result.toArray();
@@ -28,18 +31,55 @@ const getAllDocuments = async (req, res, next) => {
 };
 
 
-const addDocument = async (req, res) => {
+controllers.addDocument = async (req, res) => {
   const document = {
     title: req.body.title,
     content: req.body.content
   };
   const response = await mongodb.getDb().db('WordProc').collection('documents').insertOne(document);
   if (response.acknowledged) {
-    res.status(201).json(response);
+    let message = "Success!"
+    res.status(200).render('./successPage.ejs', {message} );
+
   } else {
-    res.status(500).json(response.error || 'Some error occurred while creating the document.');
+    let message = "Error! " + response.error
+    res.status(500).render('./successPage.ejs', {message} );
   }};
 
 
+controllers.editDocument = async (req, res, next) => {
+    try {
+      const id = new ObjectId(req.params.id);
+      const Newdoc = {
+        title: req.body.title,
+        content: req.body.content
+      };
+  
+      const response = await mongodb.getDb().db('WordProc').collection('documents').replaceOne({ _id: id }, Newdoc);
+  
+      if (response.modifiedCount > 0) {
+        let message = "Success!";
+        res.status(200).render('./successPage.ejs', {message} );
+      } else {
+        let message = "Error! Nothing happened.";
+        res.status(500).render('./successPage.ejs', {message} );
+      }
+    } catch (error) {
+      let message = "Error! " + error;
+      res.status(500).render('./successPage.ejs', {message} );
+    }
+  };
+
+  controllers.deleteDocument = async (req, res, next) =>{
+    const id = new ObjectId(req.params.id);
+    const response = await mongodb.getDb().db('WordProc').collection('documents').deleteOne({ _id: id });
+    if (response.deletedCount > 0) {
+      console.log(`${response}, got removed.`);
+      res.status(204).send();
+    } else {
+      res.status(500).json(response.error || 'Error deleting.');
+    }
+  };
+
 // EXPORT ---------------------------------------------------------------
-module.exports = {getAllDocuments, addDocument};
+module.exports = controllers

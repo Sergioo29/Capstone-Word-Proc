@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <%- include('partials/header') %>
+
+  <h1>Edit Document</h1>
+  
+  <form action="/documents/<%= document._id %>?_method=PUT" method="POST">
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" value="<%= document.title %>" required>
+    </div>
+    <div>
+      <label for="content">Content:</label>
+      <textarea id="content" name="content" rows="10" cols="30" required><%= document.content %></textarea>
+    </div>
+    <button type="submit" class="SubmitFormButton">Save Changes</button>
+  </form>
+
+</body>
+</html>

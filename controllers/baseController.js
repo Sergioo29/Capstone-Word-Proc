@@ -1,16 +1,20 @@
-const { get } = require('mongoose');
-const mongodb = require('../database/connect.js');
-const { MongoClient, ObjectId } = require('mongodb');
+const router = require('express').Router();
+const controller = require('../controllers/baseController.js');
+const documentsRouter = require('./documents.js'); // Assuming documents.js contains your document routes
 
-//-----------------------------------------------------------------------
+// GET routes -----------------------------------
+router.get('/', controller.getHomepage);
 
-const getHomepage = async (req, res, next) => {
-    let message = "Please Log in";
+// Route for /documents
+router.use('/documents', (req, res, next) => {
     if (req.oidc.isAuthenticated()) {
-        message = "Welcome back! You are authenticated!";
-    } 
-    res.status(200).render('./homepage.ejs', {message} );
-  };
-  
-  // EXPORT ---------------------------------------------------------------
-  module.exports = {getHomepage};
+        // If authenticated, proceed to the documents route handler
+        return next(); // Pass control to the documents router
+    } else {
+        // If not authenticated, render blocked page
+        return res.status(401).render('./blockedPage.ejs');
+    }
+}, documentsRouter);  // Use the documentsRouter here
+
+// EXPORT -----------------------------------------
+module.exports = router;

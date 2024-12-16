@@ -11,18 +11,36 @@
     <%- include('partials/header') %>
 
     <main>
+        <br>
         <h1>Your Documents</h1>
+        <br>
+        
+        <a href="/documents/new" class="AddButton">+ New</a>
+
+        <br>
+        <br>
+
         <ul>
             <% documents.forEach(document => { %>
                 <li>
 
-                <h2><strong><%= document.title %></strong></h2>
+                <h2><strong>Title: <%= document.title %></strong></h2>
+                <br>
 
-                <p>by <%= document.content %></p>
+                <p><%= document.content %></p>
+                <br>
+                
+                <div class="docEditOption"> 
+                    <a href="/documents/<%= document._id %>/edit" class="EditButton">Edit</a>
+                    <a href="#" class="DeleteButton" data-id="<%= document._id %>">Delete</a>
+                </div>
 
                 </li>
             <% }) %>
         </ul>
     </main>
+
+    <script src="/js/delete.js" defer></script>
+
 </body>
 </html>

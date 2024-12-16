@@ -12,6 +12,11 @@ html{
 body{
     font-family: sans-serif;
     margin: 0px;
+    padding-bottom: 5% ;
+}
+
+main{
+    padding: 0px 5%;
 }
     
 header{
@@ -68,7 +73,7 @@ nav a{
 
 main ul{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
 
 }
@@ -77,36 +82,6 @@ main li{
     list-style: none;
     padding: 20px;
     border: 2px solid black;
-    background-color: lightblue;
-}
-
-main li img{
-    border: 5px solid black;
-    margin-left: 25%;
-}
-
-main li h2, main li h3{
-    text-align: center;
-}
-
-header  button{
-    background-color: black;
-    padding: 15px; color: white;
-    border: 2px solid white;
-    border-radius: 25px;
-    text-decoration: none;
-    width: 50%;
-    height: 40%;
-    justify-self: center;
-    align-self: center;
-}
-
-header button a{
-    text-decoration: none;
-    color: white;
-   
-}
-header button:hover{
     background-color: lightblue;
 }
 
@@ -122,4 +97,74 @@ header button:hover{
 .loggedMessage{
     text-align: center;
     margin-top: 5%;
+}
+
+.homeButton{
+    background-color: darkblue;
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 47%;
+}
+.homeButton:hover{
+    background-color: lightblue;
+    color: black;
+}
+
+/* DOCUMENT PAGE ------------*/
+
+.docEditOption{
+    display: flex;
+    justify-content: space-around;
+}
+
+.AddButton{
+    background-color: darkblue;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 5%;
+    text-decoration: none;
+}
+
+.EditButton{
+    background-color: darkgreen;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.DeleteButton{
+    background-color: darkred;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.AddButton:hover, .EditButton:hover, .DeleteButton:hover{
+    background-color: white;
+    color: black;
+}
+
+/* FORMS ------------------*/
+
+form{
+text-align: center;
+margin: 1% 10%;
+}
+
+[name=title]{
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+[name=content]{
+    width: 100%;
+    height: 100%;
+}
+
+.SubmitFormButton{
+    background-color: darkblue;
+    color: white;
+    padding: 5px 10px;
 }
