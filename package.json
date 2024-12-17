@@ -1,7 +1,7 @@
 {
-  "name": "group-3---book-api",
+  "name": "Capstone Word Proc",
   "version": "1.0.0",
-  "description": "A search box API that is going to return a list of books that match the query. Book cover, name, rate, and user reviews.",
+  "description": "A simple word processor.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
