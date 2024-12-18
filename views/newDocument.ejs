@@ -23,10 +23,27 @@
             <div>
                 <label for="content">Content:</label>
                 <textarea id="content" name="content" rows="10" cols="30" required></textarea>
+                <button type="button" id="speak-btn">🔊 Speak</button>
             </div>
             <button type="submit" class="SubmitFormButton">Save</button>
         </form>
     </main>
     
+    <script>
+        document.getElementById('speak-btn').addEventListener('click', function () {
+    const content = document.getElementById('content').value; // Get the text from the textarea
+    const speech = new SpeechSynthesisUtterance(content);     // Create a speech synthesis object
+    speech.lang = 'en-US';                                   // Set language (modify as needed)
+    window.speechSynthesis.speak(speech);                    // Speak the text
+
+    if (!window.speechSynthesis) {
+    alert('Speech synthesis is not supported in this browser.');
+} else {
+    console.log('Speech synthesis is supported.');
+}
+
+});
+
+    </script>
 </body>
 </html>

@@ -1,16 +1,3 @@
-// JSX that needs babel to translate
-// const React = require('react');
-
-// function Header() {
-//     return (
-//         <header style={{ backgroundColor: 'lightblue', padding: '1rem', textAlign: 'center' }}>
-//             <h1>Welcome to My React Project</h1>
-//         </header>
-//     );
-// }
-
-// module.exports = Header;
-
 const React = require('react');
 
 function Header() {
@@ -19,65 +6,36 @@ function Header() {
         null,
         React.createElement(
             'header',
-            {
-                style: {
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    padding: '1rem',
-                    backgroundColor: 'lightblue'
-                }
-            },
+            { className: 'main-header' },
             React.createElement('img', {
                 src: '/images/logo.png',
                 alt: 'logo',
-                style: { width: '200px', height: '200px' }
+                className: 'logo'
             }),
-            React.createElement('h1', {
-                style: { fontSize: '2.5rem', margin: '0', color: '#333' }
-            }, 'Idea Surge'),
-            React.createElement('div') // Placeholder div
+            React.createElement('h1', { className: 'title' }, 'Idea Surge'),
+            React.createElement('div', { className: 'placeholder-div' })
         ),
         React.createElement(
             'nav',
-            {
-                style: {
-                    backgroundColor: '#333',
-                    color: 'white',
-                    padding: '0.5rem 1rem'
-                }
-            },
+            { className: 'main-nav' },
             React.createElement(
                 'ul',
-                {
-                    style: {
-                        display: 'flex',
-                        listStyle: 'none',
-                        margin: 0,
-                        padding: 0
-                    }
-                },
+                { className: 'nav-list' },
                 React.createElement(
                     'li',
-                    { style: { margin: '0 1rem' } },
+                    { className: 'nav-item' },
                     React.createElement(
                         'a',
-                        {
-                            href: '/',
-                            style: { color: 'white', textDecoration: 'none', fontSize: '1.2rem' }
-                        },
+                        { href: '/', className: 'nav-link' },
                         'Home'
                     )
                 ),
                 React.createElement(
                     'li',
-                    { style: { margin: '0 1rem' } },
+                    { className: 'nav-item' },
                     React.createElement(
                         'a',
-                        {
-                            href: '/documents',
-                            style: { color: 'white', textDecoration: 'none', fontSize: '1.2rem' }
-                        },
+                        { href: '/documents', className: 'nav-link' },
                         'Documents'
                     )
                 )
