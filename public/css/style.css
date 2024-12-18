@@ -140,7 +140,12 @@ main li{
     text-decoration: none;
 }
 
-.AddButton:hover, .EditButton:hover, .DeleteButton:hover{
+.AddButton:hover{
+    background-color: lightblue;
+    color: black;
+}
+
+.EditButton:hover, .DeleteButton:hover{
     background-color: white;
     color: black;
 }
